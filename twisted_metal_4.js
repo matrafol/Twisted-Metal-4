@@ -12,6 +12,13 @@ var characters = {
 	}
 }
 
+
+/*document.getElementById("search").addEventListener("click", function(){
+  document.getElementById("character_name").innerHTML = characters.character1.name;
+});*/
+
+//document.getElementById("character_name").innerHTML = characters.character1.name;
+
 //document.write(characters.character1.name);
 //document.write(characters.character2.name);
 
