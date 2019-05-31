@@ -3,7 +3,7 @@
 -------------------*/
 html{
   text-transform: uppercase;  
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: georgia;
   font-weight: bolder;
 }
@@ -25,8 +25,8 @@ a:hover{color: #33ff33;}
         MENU
 -------------------*/
 
-nav#main_nav{top: 0; background-color: red;}
-  nav input[type=image]#logo{height: 100px;}
+/*nav#main_nav{top: 0; background-color: red;}*/
+  nav input[type=image]#logo{height: 100px; margin-bottom: 10px;}
 
   input[type=text]#search{
     display: block;
@@ -36,7 +36,7 @@ nav#main_nav{top: 0; background-color: red;}
     width: 30%;
     transition: ease-out 0.5s;
   }
-    input[type=text]#search:hover{width: 40%;}
+    input[type=text]#search:hover, input[type=text]#search:focus{width: 40%;}
   /*#light{
     position: absolute;
     border-radius: 50%;
@@ -54,28 +54,32 @@ nav#main_nav{top: 0; background-color: red;}
 /*-------------------
       CONTENT
 -------------------*/
-article#carousel_container{min-height: 100%;}
-/*article#carousel_container button{position: absolute; top: 50%; transform: translateY(-50%);}
-  #previous{left: - 20px;}
+article#carousel_container{min-height: 100%; margin: 50px 100px;}
+/*article#carousel_container button{position: absolute; top: 130%; transform: translateY(-50%);}
+  #previous{left: 20px;}
   #next{right: 20px;}*/
 article.character_data_container{
-  position: absolute;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /*grid-auto-rows: minmax(250px, auto);*/
   grid-gap: 1em;
-  padding: 50px 100px;
+  /*grid-auto-rows: minmax(250px, auto);*/
 }
   /*article.character_data_container button{grid-column-end: span 1; grid-row-start: 3}
   button#previous{grid-column-start: 1;}
   button#next{grid-column-start: 4;}*/
-  article.character_data_container span{
+  article.character_data_container label.label{
     padding: 0.5em; 
     min-width: 300px;
     border: solid white 2px; 
     transition: 0.3s ease-in;
+    align-self: center;
   }
-    article.character_data_container span:hover{border: solid green 2px;}
+    article.character_data_container label.label:hover{border: solid green 2px;}
+  article.character_data_container label.character_name{
+    margin: 0 auto;
+    grid-column-start: 2;
+    grid-column-end: span 2;
+  }
 
   article.character_data_container section{
     grid-column: span 2;
@@ -84,30 +88,29 @@ article.character_data_container{
     padding: 1em;
     background-color: red;
   }
-    article.character_data_container section span{align-self: center;}
-    article.character_data_container section div{background-color: white; padding: 1em; margin-top: 10px;}
+    article.character_data_container section div{margin-top: 1em;}
 
-  span.character_name{
-    margin: 0 auto;
-    grid-column-start: 2;
-    grid-column-end: span 2;
+  section.character_info div{
+    font-size: .9em;
+    text-align: left;
   }
+    section.character_info div .data_heading{color: lightgray;}
+    section.character_info div p{display: inline;} 
+    section.character_info table{border: 1px solid blue; margin-top: 1.5em; background-color: brown;}
+      section.character_info table td{}
+        section.character_info table td:first-child{padding: 10px; font-size: .9em; width: 45%;}
+        section.character_info table td div.stats{
+          width: 30px; 
+          height: 30px; 
+          margin: 10px;
+          border-radius: 50%;
+          background-color: lightgray; 
+          display: inline-block; 
+        }
 
-  section.character_info{
-  
-  }
-
-  section.character_vehicle_gif{
-    
-  }
-
-  section.character_ending{
-  
-  }
-
-  section.character_special_attack{
-    
-  }
+  section.character_vehicle_gif{}
+  section.character_ending iframe{width: 100%; min-height: 400px; max-height: 600px;}
+  section.character_special_attack{}
 /*-------------------
       FOOTER
 -------------------*/
