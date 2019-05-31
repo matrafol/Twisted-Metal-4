@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 		<title>Twisted Metal 4</title>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/tm4.css">
@@ -19,33 +20,91 @@
 		<article id="carousel_container">
 			<button id="previous">prev</button>
 			<article class="character_data_container">
-				<span class="character_name">Calypso</span>
+				<label class="character_name label">Calypso</label>
 				<section class="character_info">
-					<span class="label">Character Info</span>
+					<label class="label">Character Info</label>
 					<div>
-						<img src="images/characters/calypso/calypso.jpg" alt="">
+						<!--<table class="data">
+							<tr>
+								<th>Type of car:</th>
+								<td>Nuke Mobile</td>
+							</tr>
+							<tr>
+								<th>Driver Demeanor:</th>
+								<td>Evil</td>
+							</tr>
+							<tr>
+								<th>Special Weapon:</th>
+								<td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fugit aliquam, nesciunt incidunt numquam, exercitationem.</p></td>
+							</tr>
+						</table>-->
+						<div>
+							<span class="data_heading">Type of car:</span>
+							<span id="type_of_car">Nuke Mobile</span>
+						</div>
+						<div>
+							<span class="data_heading">Driver Demeanor:</span>
+							<span id="driver_demeanor">Evil</span>	
+						</div>
+						<div>
+							<span class="data_heading">Special Weapon:</span>
+							<p id="special_weapon_desc">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, nemo.
+							</p>
+						</div>
+						<table class="data">
+							<tr>
+								<td><span class="data_heading">Handling:</span></td>
+								<td id="handling"><div class="stats"></div></td>
+							</tr>
+							<tr>
+								<td><span class="data_heading">Armor:</span></td>
+								<td id="armor">
+									<div class="stats"></div>
+									<div class="stats"></div>
+									<div class="stats"></div>
+									<div class="stats"></div>
+									<div class="stats"></div>
+								</td>
+							</tr>
+							<tr>
+								<td><span class="data_heading">Special Weapon:</span></td>
+								<td id="stats_special_weapon">
+									<div class="stats"></div>
+									<div class="stats"></div>
+									<div class="stats"></div>
+									<div class="stats"></div>
+									<div class="stats"></div>
+								</td>
+							</tr>
+							<tr>
+								<td><span class="data_heading">Speed:</span></td>
+								<td id="speed"><div class="stats"></div></td>
+							</tr>
+						</table>
 					</div>
 				</section>
 				<section class="character_vehicle_gif">
-					<span class="label">Vehicle</span>
-					<div>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum aperiam dignissimos accusantium iure architecto nesciunt dolores, optio quam consequatur nihil modi voluptates odio blanditiis, ea numquam voluptatem! Nihil, itaque, porro. 
-					</div>
-				</section>
-				<section class="character_ending">
-					<span class="label">Ending</span>
-					<div>
+					<label class="label">Vehicle</label>
+					<div id="vehicle_gif">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum aperiam dignissimos accusantium iure architecto nesciunt dolores, optio quam consequatur nihil modi voluptates odio blanditiis, ea numquam voluptatem! Nihil, itaque, porro.
 					</div>
 				</section>
+				<section class="character_ending">
+					<label class="label">Ending</label>
+					<div id="ending">
+						<iframe src="https://www.youtube.com/embed/jNk2cZSBq5g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					
+				</section>
 				<section class="character_special_attack">
-					<span class="label">Special Attack</span>
-					<div>
+					<label class="label">Special Attack</label>
+					<div id="special_weapon_gif">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum aperiam dignissimos accusantium iure architecto nesciunt dolores, optio quam consequatur nihil modi voluptates odio blanditiis, ea numquam voluptatem! Nihil, itaque, porro.
 					</div>
 				</section>
 			</article>
-			<article class="character_data_container">
+			<!--<article class="character_data_container">
 				<span class="character_name">Goggle Eyes</span>
 				<section class="character_info">
 					<span class="label">Character Info</span>
@@ -71,7 +130,7 @@
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum aperiam dignissimos accusantium iure architecto nesciunt dolores, optio quam consequatur nihil modi voluptates odio blanditiis, ea numquam voluptatem! Nihil, itaque, porro.
 					</div>
 				</section>
-			</article>
+			</article>-->
 			<button id="next">next</button>
 		</article>
 		<footer id="sticky_footer">
