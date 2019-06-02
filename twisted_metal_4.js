@@ -115,6 +115,7 @@ previousButton.addEventListener("click", function(){
 
 const autoCompleteResult = document.getElementById("auto_complete_result");
 var matches = [];
+var focusHighlight = 0;
 
 search.addEventListener("keypress", function(e){
 	// Removes the past auto complete result
@@ -163,16 +164,16 @@ function displayMatches(matches){
 		autoCompleteResult.innerHTML += '<li class="result">' + matches[matchCounter].vehicle_image + '' +
 										'<span class="result_name">' + matches[matchCounter].name +'</span></li>';
 	}
-	highlightResult();
+	highlightResult(focusHighlight);
 	toggleResult("show");
 }
 
 // Only add the css highlighted to the first result
-function highlightResult(){
+function highlightResult(highlightedIndex){
 	for (var childrenIndex = 0; childrenIndex < autoCompleteResult.children.length; childrenIndex++) {
 		autoCompleteResult.children[childrenIndex].classList.remove("highlighted");
 	}
-	autoCompleteResult.children[0].classList.add("highlighted");
+	autoCompleteResult.children[highlightedIndex].classList.add("highlighted");
 }
 
 function changeHtmlElement(characterData){
