@@ -33,14 +33,13 @@
 	auto complete inside the search function displaying the name and vehicle of the character
 	if the user input does not match then alert an error or change the html element with search result not found
 	else change the index counter according to whom the user searched and call the changeHtmlElement function
-	
+
 */
 
 // Ending videos https://www.youtube.com/watch?v=VPEcXZuI8qY&list=PLdYcmK9OdqC5Uplp7HMQYhFvuI_1xoWLu
 //function getCharacterData(index){
 	const characters = [
 		{
-			//name: document.getElementsByClassName("character_name")[0].innerHTML =  "Calypsoaaa",
 			name: "Calypso",
 			type_of_car: "Nuke Mobile",
 			vehicle_image: '<img src="images/characters/calypso/calypso-vehicle.png">',
@@ -51,12 +50,13 @@
 			armor: 4,
 			special_weapon_stats: 4,
 			speed: 1,
-			ending_video: '<iframe src="https://www.youtube.com/embed/JhjCPxbezxE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+			ending_video: '<iframe src="https://www.youtube.com/embed/JhjCPxbezxE" \
+				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		},
 		{
 			name: "Captain Grimm",
 			type_of_car: "Pirate ship car",
-			vehicle_image: '<img src="images/characters/carptain-grimm/carptain-grimm-vehicle.png">',
+			vehicle_image: '<img src="images/characters/captain-grimm/captain-grimm-vehicle.png">',
 			driver_deamanor: "Evil",
 			special_weapon_desc: 
 				"Captain Grimm shoots a fiery cannon ball that sets fire to and damages heavily any opponent",
@@ -64,7 +64,8 @@
 			armor: 1,
 			special_weapon_stats: 3,
 			speed: 4,
-			ending_video: '<iframe src="https://www.youtube.com/embed/rR3uSkcBWz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+			ending_video: '<iframe src="https://www.youtube.com/embed/rR3uSkcBWz8" \
+				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		}, 
 		{
 			name: "Drag Queen",
@@ -77,20 +78,21 @@
 			armor: 2,
 			special_weapon_stats: 3,
 			speed: 4, 
-			ending_video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/7ACQyrZJ4zM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+			ending_video: '<iframe src="https://www.youtube.com/embed/7ACQyrZJ4zM" \
+				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
 		}
 	];
 	//return characters[index];
 //}
 
 var index = 0;
+const characterLength = characters.length;
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const search = document.getElementById("search");
 
-
 nextButton.addEventListener("click", function(){
-	if(index == characters.length - 1){
+	if(index == characterLength - 1){
 		index = 0; 
 		changeHtmlElement(characters[index]);
 	}
@@ -102,7 +104,7 @@ nextButton.addEventListener("click", function(){
 
 previousButton.addEventListener("click", function(){
 	if(index == 0){ 
-		index = characters.length - 1; 
+		index = characterLength - 1; 
 		changeHtmlElement(characters[index]);
 	}
 	else{
@@ -111,7 +113,69 @@ previousButton.addEventListener("click", function(){
 	}
 });
 
-function changeHtmlElement(){
+const autoCompleteResult = document.getElementById("auto_complete_result");
+var matches = [];
+
+search.addEventListener("keypress", function(e){
+	// Removes the past auto complete result
+	autoCompleteResult.innerHTML = '';
+	toggleResult("hide");
+
+	// If there is some input at the text field
+	if(this.value.length > 0){
+		matches = getMatches(this.value);
+		if(matches.length > 0){
+			displayMatches(matches);
+		}
+	}
+
+	if(e.key == "Enter"){
+		e.preventDefault();
+	}
+});
+
+function toggleResult(action){
+	if(action == "hide"){
+		autoCompleteResult.classList.remove('visible');
+	} else if(action == "show"){
+		autoCompleteResult.classList.add('visible');
+	}
+}
+
+function getMatches(input){
+	var matchList = [];
+
+	for (var i = 0; i < characterLength; i++) {
+		// indexOf method returns -1 if it didnt find any match
+		// Compares if there is a match between the input text and name object in the characters array
+		if(characters[i].name.toLowerCase().indexOf(input.toLowerCase()) != -1){
+			// populate the matchList empty array
+			matchList.push(characters[i]);
+		}
+	}
+	return matchList;
+}
+
+// Populate the ul html element if theres a match
+function displayMatches(matches){
+	for (var matchCounter = 0; matchCounter < matches.length; matchCounter++) {
+		// Create li element inside ul with the name from the characters array
+		autoCompleteResult.innerHTML += '<li class="result">' + matches[matchCounter].vehicle_image + '' +
+										'<span class="result_name">' + matches[matchCounter].name +'</span></li>';
+	}
+	highlightResult();
+	toggleResult("show");
+}
+
+// Only add the css highlighted to the first result
+function highlightResult(){
+	for (var childrenIndex = 0; childrenIndex < autoCompleteResult.children.length; childrenIndex++) {
+		autoCompleteResult.children[childrenIndex].classList.remove("highlighted");
+	}
+	autoCompleteResult.children[0].classList.add("highlighted");
+}
+
+function changeHtmlElement(characterData){
 	var elements ={
 		name: document.getElementsByClassName("character_name")[0].innerHTML = characterData.name,
 		type_of_car: document.getElementById("type_of_car").innerHTML = characterData.type_of_car,

@@ -27,7 +27,15 @@ a:hover{color: #33ff33;}
     width: 30%;
     transition: ease-out 0.5s;
   }
-    input[type=text]#search:hover, input[type=text]#search:focus{width: 40%;}
+    input[type=text]#search:hover, input[type=text]#search:focus, nav ul{width: 40%;}
+
+  nav ul{list-style: none; background-color: white; margin:auto; padding: 0;}
+  nav ul li.result{text-align: left; padding: 10px;}
+  nav ul li.result img{width: 80px; padding-right: 10px; vertical-align: middle;}
+  nav ul li span.result_name{color: gray;}
+  nav ul li.highlighted{background-color: lightgray;}
+ 
+  /*nav .highlighted{background-color: blue};*/
   /*#light{
     position: absolute;
     border-radius: 50%;
@@ -49,6 +57,7 @@ article#carousel_container{min-height: 100%; margin: 50px 100px; /*position: rel
 /*article#carousel_container button{position: absolute; top: 130%; transform: translateY(-50%);}
   #previous{left: 20px;}
   #next{right: 20px;}*/
+  
 article.character_data_container{
   /*position: relative;*/
   display: grid;
