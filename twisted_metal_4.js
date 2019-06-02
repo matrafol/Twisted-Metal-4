@@ -1,21 +1,43 @@
 /* 
-	Try to do
-	'names': ["Calypso", "Drag queen", "Sweet tooth"],
-	'type_of_car' : []
-	'driver_deamanor' : []
-	'special_weapon_info' : []
-	'special_weapon_gif' : []
-	'vehicle_image' : []
-	'vehicle_gif' : []
-	'character_ending' : []
-	'handling' : []
-	'armor' : []
-	'special_weapon_stats' : []
-	'speed' : []
+	Object array
+
+	'names': ,
+	character_image:,
+	'type_of_car' : ,
+	'driver_deamanor' :, 
+	'special_weapon_info' :, 
+	'special_weapon_gif' : ,
+	'vehicle_image' : ,
+	'vehicle_gif' : ,
+	'ending_video' :, 
+	'handling' : ,
+	'armor' : ,
+	'special_weapon_stats' :,
+	'speed' : ,
+
+// Carousel by button
+	index = 0;
+
+	if previous button is clicked
+		index--
+		call function changehtmlelement(index)
+		if index == 0
+			disable/hide previous button or goes to the last array
+	else
+		index++
+		call changehtmlelement(index)
+		if index == index.length - 1(last index)
+			disable/hide next button or goes to the first array
+
+// Search function
+	auto complete inside the search function displaying the name and vehicle of the character
+	if the user input does not match then alert an error or change the html element with search result not found
+	else change the index counter according to whom the user searched and call the changeHtmlElement function
+	
 */
 
 // Ending videos https://www.youtube.com/watch?v=VPEcXZuI8qY&list=PLdYcmK9OdqC5Uplp7HMQYhFvuI_1xoWLu
-function getCharacterData(index){
+//function getCharacterData(index){
 	const characters = [
 		{
 			//name: document.getElementsByClassName("character_name")[0].innerHTML =  "Calypsoaaa",
@@ -29,7 +51,7 @@ function getCharacterData(index){
 			armor: 4,
 			special_weapon_stats: 4,
 			speed: 1,
-			ending: '<iframe src="https://www.youtube.com/embed/JhjCPxbezxE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+			ending_video: '<iframe src="https://www.youtube.com/embed/JhjCPxbezxE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		},
 		{
 			name: "Captain Grimm",
@@ -42,7 +64,7 @@ function getCharacterData(index){
 			armor: 1,
 			special_weapon_stats: 3,
 			speed: 4,
-			ending: '<iframe src="https://www.youtube.com/embed/rR3uSkcBWz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+			ending_video: '<iframe src="https://www.youtube.com/embed/rR3uSkcBWz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		}, 
 		{
 			name: "Drag Queen",
@@ -55,14 +77,41 @@ function getCharacterData(index){
 			armor: 2,
 			special_weapon_stats: 3,
 			speed: 4, 
-			ending: '<iframe width="560" height="315" src="https://www.youtube.com/embed/7ACQyrZJ4zM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+			ending_video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/7ACQyrZJ4zM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
 		}
 	];
-	return characters[index];
-}
-//console.log(getCharacterData(1));
-function changeHtmlElement(characterData){
-	//console.log(characterData);
+	//return characters[index];
+//}
+
+var index = 0;
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
+const search = document.getElementById("search");
+
+
+nextButton.addEventListener("click", function(){
+	if(index == characters.length - 1){
+		index = 0; 
+		changeHtmlElement(characters[index]);
+	}
+	else{
+		index ++;
+		changeHtmlElement(characters[index]);
+	}
+});
+
+previousButton.addEventListener("click", function(){
+	if(index == 0){ 
+		index = characters.length - 1; 
+		changeHtmlElement(characters[index]);
+	}
+	else{
+		index --;
+		changeHtmlElement(characters[index]);
+	}
+});
+
+function changeHtmlElement(){
 	var elements ={
 		name: document.getElementsByClassName("character_name")[0].innerHTML = characterData.name,
 		type_of_car: document.getElementById("type_of_car").innerHTML = characterData.type_of_car,
@@ -78,12 +127,13 @@ function changeHtmlElement(characterData){
 		armor: characterData.armor,
 		special_weapon_stats: characterData.special_weapon_stats,
 		speed: characterData.speed,
-		ending: document.getElementById("ending").innerHTML = characterData.ending
+		ending_video: document.getElementById("ending").innerHTML = characterData.ending_video
 	}
 	return elements;
 }
 
-console.log(changeHtmlElement(getCharacterData(0)));
+//changeHtmlElement(characters[1]);
+//console.log(changeHtmlElement(characters[1]));
 //console.log(changeHtmlElement(getCharacterData(1)));
 
 

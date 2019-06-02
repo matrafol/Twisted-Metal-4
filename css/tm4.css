@@ -11,20 +11,11 @@ html{
 body{background-color: #1B1B1E; text-align: center;}
 nav, footer{padding: 1em;}
 
-/*nav, footer{
-  display: flex;
-  flex-flow: column wrap;
-  align-content: center;
-  padding: 1em;
-}*/
-
 a{text-decoration: none; color: black;}
 a:hover{color: #33ff33;}
-
 /*-------------------
         MENU
 -------------------*/
-
 /*nav#main_nav{top: 0; background-color: red;}*/
   nav input[type=image]#logo{height: 100px; margin-bottom: 10px;}
 
@@ -54,11 +45,12 @@ a:hover{color: #33ff33;}
 /*-------------------
       CONTENT
 -------------------*/
-article#carousel_container{min-height: 100%; margin: 50px 100px;}
+article#carousel_container{min-height: 100%; margin: 50px 100px; /*position: relative;*/}
 /*article#carousel_container button{position: absolute; top: 130%; transform: translateY(-50%);}
   #previous{left: 20px;}
   #next{right: 20px;}*/
 article.character_data_container{
+  /*position: relative;*/
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
@@ -80,7 +72,7 @@ article.character_data_container{
     grid-column-start: 2;
     grid-column-end: span 2;
   }
-
+  
   article.character_data_container section{
     grid-column: span 2;
     display: flex;
@@ -116,8 +108,7 @@ article.character_data_container{
 -------------------*/
 
 footer#sticky_footer{
-  /*width: 100%;
-  position: absolute;
+  /*position: absolute;
   bottom: 0;*/
   background-color: tomato;
 }
