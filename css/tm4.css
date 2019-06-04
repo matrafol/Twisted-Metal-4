@@ -29,8 +29,9 @@ a:hover{color: #33ff33;}
   }
     input[type=text]#search:hover, input[type=text]#search:focus, nav ul{width: 40%;}
 
-  nav ul{list-style: none; background-color: white; margin:auto; padding: 0;}
-  nav ul li.result{text-align: left; padding: 10px;}
+  nav ul{list-style: none; margin: auto; padding: 0; visibility: hidden;}
+  nav ul.visible{visibility: visible;}
+  nav ul li.result{text-align: left; padding: 10px; background-color: white;}
   nav ul li.result img{width: 80px; padding-right: 10px; vertical-align: middle;}
   nav ul li span.result_name{color: gray;}
   nav ul li.highlighted{background-color: lightgray;}
@@ -53,7 +54,7 @@ a:hover{color: #33ff33;}
 /*-------------------
       CONTENT
 -------------------*/
-article#carousel_container{min-height: 100%; margin: 50px 100px; /*position: relative;*/}
+article#carousel_container{min-height: 100%; margin: 50px; /*position: relative;*/}
 /*article#carousel_container button{position: absolute; top: 130%; transform: translateY(-50%);}
   #previous{left: 20px;}
   #next{right: 20px;}*/
