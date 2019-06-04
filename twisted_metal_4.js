@@ -115,8 +115,9 @@ previousButton.addEventListener("click", function(){
 
 const autoCompleteResult = document.getElementById("auto_complete_result");
 var matches = [];
+var focusHighlight = 0;
 
-search.addEventListener("keypress", function(e){
+search.addEventListener("keyup", function(e){
 	// Removes the past auto complete result
 	autoCompleteResult.innerHTML = '';
 	toggleResult("hide");
@@ -129,8 +130,37 @@ search.addEventListener("keypress", function(e){
 		}
 	}
 
-	if(e.key == "Enter"){
-		e.preventDefault();
+	/*var autoCompleteChildren = autoCompleteResult.children[focusHighlight];
+	autoCompleteChildren.addEventListener("onmouseover", function(e){
+		//search.value = document.getElementsByClassName("result")[focusHighlight].children[1].innerHTML;
+		highlightResult(focusHighlight);
+		toggleResult("hide");
+		focusHighlight = 0;
+	});*/
+
+	if(autoCompleteResult.classList.contains('visible')){
+		switch(e.key){
+			case "Enter":
+				// Changes the text inside search
+				search.value = document.getElementsByClassName("result")[focusHighlight].children[1].innerHTML;
+				toggleResult("hide");
+				changeHtmlElement(characters[index]);
+				focusHighlight = 0;
+				e.preventDefault();
+				break;
+			case "ArrowUp":
+				if(focusHighlight > 0){
+					focusHighlight--;
+					highlightResult(focusHighlight);
+				}
+				break; 
+			case "ArrowDown":
+				if(focusHighlight < matches.length - 1){
+					focusHighlight++;
+					highlightResult(focusHighlight);
+				}
+				break;
+		}
 	}
 });
 
@@ -151,6 +181,7 @@ function getMatches(input){
 		if(characters[i].name.toLowerCase().indexOf(input.toLowerCase()) != -1){
 			// populate the matchList empty array
 			matchList.push(characters[i]);
+			index = i;
 		}
 	}
 	return matchList;
@@ -161,18 +192,18 @@ function displayMatches(matches){
 	for (var matchCounter = 0; matchCounter < matches.length; matchCounter++) {
 		// Create li element inside ul with the name from the characters array
 		autoCompleteResult.innerHTML += '<li class="result">' + matches[matchCounter].vehicle_image + '' +
-										'<span class="result_name">' + matches[matchCounter].name +'</span></li>';
+										'<span class="result_name">' + matches[matchCounter].name; +'</span></li>';
 	}
-	highlightResult();
+	highlightResult(focusHighlight);
 	toggleResult("show");
 }
 
-// Only add the css highlighted to the first result
-function highlightResult(){
+// Add the css highlighted 
+function highlightResult(highlightedIndex){
 	for (var childrenIndex = 0; childrenIndex < autoCompleteResult.children.length; childrenIndex++) {
 		autoCompleteResult.children[childrenIndex].classList.remove("highlighted");
 	}
-	autoCompleteResult.children[0].classList.add("highlighted");
+	autoCompleteResult.children[highlightedIndex].classList.add("highlighted");
 }
 
 function changeHtmlElement(characterData){
