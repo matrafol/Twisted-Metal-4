@@ -40,6 +40,7 @@
 //function getCharacterData(index){
 	const characters = [
 		{
+			index: 0,
 			name: "Calypso",
 			type_of_car: "Nuke Mobile",
 			vehicle_image: '<img src="images/characters/calypso/calypso-vehicle.png">',
@@ -54,6 +55,7 @@
 				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		},
 		{
+			index: 1,
 			name: "Captain Grimm",
 			type_of_car: "Pirate ship car",
 			vehicle_image: '<img src="images/characters/captain-grimm/captain-grimm-vehicle.png">',
@@ -68,6 +70,7 @@
 				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		}, 
 		{
+			index: 2,
 			name: "Drag Queen",
 			type_of_car: "Hot Rodder",
 			vehicle_image: '<img src="images/characters/drag-queen/drag-queen-vehicle.png">',
@@ -119,7 +122,6 @@ var focusHighlight = 0;
 
 search.addEventListener("keyup", function(e){
 	// Removes the past auto complete result
-	autoCompleteResult.innerHTML = '';
 	toggleResult("hide");
 
 	// If there is some input at the text field
@@ -129,22 +131,45 @@ search.addEventListener("keyup", function(e){
 			displayMatches(matches);
 		}
 	}
+	//console.log(matches);
+	//console.log(autoCompleteResult.children);
+	// Change the focusHighlight based on mouse hover
 
-	/*var autoCompleteChildren = autoCompleteResult.children[focusHighlight];
-	autoCompleteChildren.addEventListener("onmouseover", function(e){
-		//search.value = document.getElementsByClassName("result")[focusHighlight].children[1].innerHTML;
-		highlightResult(focusHighlight);
-		toggleResult("hide");
-		focusHighlight = 0;
+	/*var autoCompleteChildren = autoCompleteResult;
+	autoCompleteChildren.addEventListener("mouseenter", function(e){
+		alert(e.value);
+		//document.getElementsByClassName("result_index")[focusHighlight].value
+		//highlightResult(selectedIndex);
+		if(focusHighlight > 0){
+			highlightResult(focusHighlight);
+			focusHighlight--;
+		} else if(focusHighlight < matches.length - 1){
+			highlightResult(focusHighlight);
+			focusHighlight++;
+		}
 	});*/
+
+	/*var test = document.getElementsByClassName("result")[0];
+	test.addEventListener("mouseenter", function(e){
+		e.classList.add("highlighted");
+	});
+
+	test.addEventListener("mouseout", function(e){
+		e.classList.remove("highlighted");
+	});*/
+
+	document.body.addEventListener('click', function(e){
+		toggleResult("hide");
+	});
 
 	if(autoCompleteResult.classList.contains('visible')){
 		switch(e.key){
 			case "Enter":
 				// Changes the text inside search
 				search.value = document.getElementsByClassName("result")[focusHighlight].children[1].innerHTML;
-				toggleResult("hide");
+				index = document.getElementsByClassName("result_index")[focusHighlight].value;
 				changeHtmlElement(characters[index]);
+				toggleResult("hide");
 				focusHighlight = 0;
 				e.preventDefault();
 				break;
@@ -167,6 +192,7 @@ search.addEventListener("keyup", function(e){
 function toggleResult(action){
 	if(action == "hide"){
 		autoCompleteResult.classList.remove('visible');
+		autoCompleteResult.innerHTML = '';
 	} else if(action == "show"){
 		autoCompleteResult.classList.add('visible');
 	}
@@ -178,10 +204,11 @@ function getMatches(input){
 	for (var i = 0; i < characterLength; i++) {
 		// indexOf method returns -1 if it didnt find any match
 		// Compares if there is a match between the input text and name object in the characters array
-		if(characters[i].name.toLowerCase().indexOf(input.toLowerCase()) != -1){
+		//if(characters[i].name.toLowerCase().indexOf(input.toLowerCase()) != -1){
+		if(characters[i].name.toLowerCase().startsWith(input)){
 			// populate the matchList empty array
 			matchList.push(characters[i]);
-			index = i;
+			//index = i; BUGGED
 		}
 	}
 	return matchList;
@@ -192,7 +219,8 @@ function displayMatches(matches){
 	for (var matchCounter = 0; matchCounter < matches.length; matchCounter++) {
 		// Create li element inside ul with the name from the characters array
 		autoCompleteResult.innerHTML += '<li class="result">' + matches[matchCounter].vehicle_image + '' +
-										'<span class="result_name">' + matches[matchCounter].name; +'</span></li>';
+										'<span class="result_name">' + matches[matchCounter].name +'</span>' +
+										'<input type="hidden" class="result_index" value="'+ matches[matchCounter].index +'"></li>';
 	}
 	highlightResult(focusHighlight);
 	toggleResult("show");
