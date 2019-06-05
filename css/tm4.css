@@ -24,10 +24,10 @@ a:hover{color: #33ff33;}
     margin: auto;
     padding: 5px 10px;
     text-transform: uppercase;
-    width: 30%;
+    width: 25%;
     transition: ease-out 0.5s;
   }
-    input[type=text]#search:hover, input[type=text]#search:focus, nav ul{width: 40%;}
+    input[type=text]#search:hover, input[type=text]#search:focus, nav ul{width: 35%;}
 
   nav ul{list-style: none; margin: auto; padding: 0; visibility: hidden;}
   nav ul.visible{visibility: visible;}
