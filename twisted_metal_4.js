@@ -109,7 +109,7 @@ search.addEventListener("keyup", function(e){
 		}
 	}
 
-	if(autoCompleteResult.classList.contains('visible')){
+	if(autoCompleteResult.style.visiblity == "visible"){
 		switch(e.key){
 			case "Enter":
 				search.value = document.getElementsByClassName("result_name")[focusHighlight].innerHTML;
@@ -155,12 +155,40 @@ document.body.addEventListener('click', function(e){
 		focusHighlight = 0;
 });
 
+function changeColor(driverDemeanor, playerType){
+	if(playerType.toLowerCase() == "boss") return;
+
+	var driverDemeanorHtml = document.getElementById("driver_demeanor");
+	var typeOfCarHtml = document.getElementById("type_of_car");
+
+	if(driverDemeanor.toLowerCase() == "evil"){
+		driverDemeanorHtml.style.color = "#fa033d";
+		typeOfCarHtml.style.color = "#fa033d";
+	} else{
+		driverDemeanorHtml.style.color = "#72E900";
+		typeOfCarHtml.style.color = "#72E900";
+	}
+}
+
+function toggleCharacterInfoEnding(playerType){
+	var characterInfo = document.getElementsByClassName("character_info")[0];
+	var characterEnding = document.getElementsByClassName("character_ending")[0];
+
+	if(playerType.toLowerCase() == "boss"){
+		characterInfo.style.display = "none";
+		characterEnding.style.display = "none";
+	} else{
+		characterInfo.style.display = "block";
+		characterEnding.style.display = "block";
+	}
+}
+
 function toggleResult(action){
 	if(action == "hide"){
-		autoCompleteResult.classList.remove('visible');
+		autoCompleteResult.style.visiblity = "hidden";
 		autoCompleteResult.innerHTML = '';
 	} else if(action == "show"){
-		autoCompleteResult.classList.add('visible');
+		autoCompleteResult.style.visiblity = "visible";
 	}
 }
 
@@ -197,21 +225,9 @@ function highlightResult(highlightedIndex){
 	autoCompleteResult.children[highlightedIndex].classList.add("highlighted");
 }
 
-function toggleCharacterInfoEnding(playerType){
-	var characterInfo = document.getElementsByClassName("character_info")[0];
-	var characterEnding = document.getElementsByClassName("character_ending")[0];
-
-	if(playerType.toLowerCase() == "boss"){
-		characterInfo.style.display = "none";
-		characterEnding.style.display = "none";
-	} else{
-		characterInfo.style.display = "block";
-		characterEnding.style.display = "block";
-	}
-}
-
 function changeHtmlElement(characterData){
 	toggleCharacterInfoEnding(characterData.player_type);
+	changeColor(characterData.driver_deamanor, characterData.player_type);
 
 	var handlingHtml = document.getElementById("handling");
 	var armorHtml = document.getElementById("armor");
@@ -224,42 +240,43 @@ function changeHtmlElement(characterData){
 		driver_deamanor: document.getElementById("driver_demeanor").innerHTML = characterData.driver_deamanor,
 		special_weapon_desc: document.getElementById("special_weapon_desc").innerHTML = characterData.special_weapon_desc,
 
-		// Javascript closure, pass the needed characterData variable to the functions
+		// Javascript closure self invoked and doesnt need to be called, 
+		// Pass the needed characterData variable to the functions
 		// Keep createing new element div with a class name of stats 
 		// Then append it to its parent node until the counter is equal to the passed variable
 
-		handling: (function(handling){
+		handling: (function(){
 			handlingHtml.innerHTML = '';
-			for (var handlingStat = 0; handlingStat < handling; handlingStat++) {
+			for (var handlingStat = 0; handlingStat < characterData.handling; handlingStat++) {
 				var stat = document.createElement("div");
 				stat.className = "stats";
 				handlingHtml.appendChild(stat);
 			}
-		}(characterData.handling)),
-		armor: (function(armor){
+		}()),
+		armor: (function(){
 			armorHtml.innerHTML = '';
-			for (var armorStat = 0; armorStat < armor; armorStat++) {
+			for (var armorStat = 0; armorStat < characterData.armor; armorStat++) {
 				var stat = document.createElement("div");
 				stat.className = "stats";
 				armorHtml.appendChild(stat);
 			}
-		}(characterData.armor)),
-		special_weapon_stats: (function(specialWeapon){
+		}()),
+		special_weapon_stats: (function(){
 			specialWeaponHtml.innerHTML = '';
-			for (var specialWeaponStat = 0; specialWeaponStat < specialWeapon; specialWeaponStat++) {
+			for (var specialWeaponStat = 0; specialWeaponStat < characterData.special_weapon_stats; specialWeaponStat++) {
 				var stat = document.createElement("div");
 				stat.className = "stats";
 				specialWeaponHtml.appendChild(stat);
 			}
-		}(characterData.special_weapon_stats)),
-		speed: (function(speed){
+		}()),
+		speed: (function(){
 			speedHtml.innerHTML = '';
-			for (var speedStat = 0; speedStat < speed; speedStat++) {
+			for (var speedStat = 0; speedStat < characterData.speed; speedStat++) {
 				var stat = document.createElement("div");
 				stat.className = "stats";
 				speedHtml.appendChild(stat);
 			}
-		}(characterData.speed)),
+		}()),
 		ending_video: document.getElementById("ending").innerHTML = characterData.ending_video
 	}
 	return elements;
