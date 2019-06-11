@@ -14,6 +14,8 @@ const characters = [
 		speed: 1,
 		ending_video: '<iframe src="https://www.youtube.com/embed/JhjCPxbezxE" \
 			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif : '<iframe src="https://giphy.com/embed/65HTa72NRQ1WEc0Jh0" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		//special_weapon_gif: '<iframe src="https://media.giphy.com/media/PQwm3MI7UqrxypReDy/giphy.gif" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
 	},
 	{
 		index: 1,
@@ -30,6 +32,7 @@ const characters = [
 		speed: 4,
 		ending_video: '<iframe src="https://www.youtube.com/embed/rR3uSkcBWz8" \
 			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/B1pIKKLYY2noZJKURp" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
 	}, 
 	{
 		index: 2,
@@ -45,12 +48,20 @@ const characters = [
 		special_weapon_stats: 3,
 		speed: 4, 
 		ending_video: '<iframe src="https://www.youtube.com/embed/7ACQyrZJ4zM" \
-			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/uBmCGBxTxQE3uTkbJx" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
 	},
 	{
 		index: 3,
 		player_type: "Boss",
 		name: "Crusher",
+		vehicle_image: '<img src="images/characters/bosses/crusher-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/LXBQotN1QfhLJFwRK2" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+	},
+	/*{
+		index: 4,
+		player_type: "Contestant",
+		name: "Orbital",
 		//type_of_car: "Hot Rodder",
 		vehicle_image: '<img src="images/characters/bosses/crusher-vehicle.png">',
 		//driver_deamanor: "Twisted",
@@ -62,15 +73,40 @@ const characters = [
 		//speed: 4, 
 		//ending_video: '<iframe src="https://www.youtube.com/embed/7ACQyrZJ4zM" \
 			//frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-	},
+		vehicle_gif : '<iframe src="https://giphy.com/embed/3oiq2CenghshqOfaNO" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+	},*/
 ];
+
+
+
+/*
+pizza boy: <iframe src="https://giphy.com/embed/dZ4ewiXYDPoajYWvC6" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+warthog: <iframe src="https://giphy.com/embed/X9QDFPdNXswVDJRVdB" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+goggle eyes: <iframe src="https://giphy.com/embed/AFPKKdM4jaWOrTCA5R" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+meter maid: <iframe src="https://giphy.com/embed/2SYi7BPHV8JjCIhUsj" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+micro blast: <iframe src="https://giphy.com/embed/pP32qbexY3fxs782M4" frameBorder="0" class="giphy-embed" allowFullScreen>
+trash man: <iframe src="https://giphy.com/embed/g4XnB39inFnHhHHzpR" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+mr zombie: <iframe src="https://giphy.com/embed/ZclQTWRqM8XAHdBMMQ" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+the joneses: <iframe src="https://giphy.com/embed/93lLEJph06lkr3zwVm" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+quatro: <iframe src="https://giphy.com/embed/1vZaI4C0D7W99GaCCo" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+rc car: <iframe src="https://giphy.com/embed/cXRdGz9kOd3j0uBdFJ" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+super auger: <iframe src="https://giphy.com/embed/RKKRKpRJgyo8mRMBaN" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+super slamm: <iframe src="https://giphy.com/embed/1xNTc7dVQ4kwJrWxo5" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+super thumper: <iframe src="https://giphy.com/embed/WNId4R9eYqeQYlNIE4" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+sweet tooth: <iframe src="https://giphy.com/embed/fGIh5oHyZCsq61pwAs" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+minion: <iframe src="https://giphy.com/embed/YVs5j7f3A7fT0bHo3w" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+moon buggy: <iframe src="https://giphy.com/embed/5EAtpVMxs8BjEBhDkX" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+super axel: <iframe src="https://giphy.com/embed/xAEKvOLazXtAXfUVpc" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+*/
 
 var index = 0;
 const characterLength = characters.length;
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 
-nextButton.addEventListener("click", function(){
+/*nextButton.addEventListener("click", function(){
 	if(index == characterLength - 1){
 		index = 0; 
 		changeHtmlElement(characters[index]);
@@ -90,7 +126,7 @@ previousButton.addEventListener("click", function(){
 		index --;
 		changeHtmlElement(characters[index]);
 	}
-});
+});*/
 
 const search = document.getElementById("search");
 const autoCompleteResult = document.getElementById("auto_complete_result");
@@ -277,7 +313,9 @@ function changeHtmlElement(characterData){
 				speedHtml.appendChild(stat);
 			}
 		}()),
-		ending_video: document.getElementById("ending").innerHTML = characterData.ending_video
+		ending_video: document.getElementById("ending").innerHTML = characterData.ending_video,
+		vehicle_gif: document.getElementById("vehicle_gif").innerHTML = characterData.vehicle_gif,
+		//special_weapon_gif: document.getElementById("special_weapon_gif").innerHTML = characterData.special_weapon_gif
 	}
 	return elements;
 }

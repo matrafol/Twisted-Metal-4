@@ -21,11 +21,12 @@ nav, footer{padding: 1em;}
         MENU
 -------------------*/
 /*nav#main_nav{top: 0; background-color: red;}*/
-  nav input[type=image]#logo{height: 100px; margin-bottom: 10px;}
+  nav input[type=image]#logo{height: 100px; margin-bottom: 20px;}
 
   input[type=text]#search{
     display: block;
     margin: auto;
+    /*border: 2px solid #FFF07C;*/
     border: none;
     color: #72E900;
     padding: 10px;
@@ -94,7 +95,7 @@ article.character_data_container button{
   }
      article.character_data_container section label{min-width: 250px;}
     /*article.character_data_container section div{}*/
-    article.character_data_container section div.info_container{margin-top: 50px;}
+    article.character_data_container section div.info_container{margin-top: 30px;}
 
   section.character_info div{
     margin-bottom: 1em;
@@ -115,9 +116,7 @@ article.character_data_container button{
           display: inline-block; 
         }
 
-  section.character_vehicle_gif{}
-  section.character_ending iframe{width: 100%; min-height: 400px; max-height: 600px;}
-  section.character_special_attack{}
+  .info_container iframe{width: 100%; min-height: 400px; max-height: 600px; border: 2px solid #5D737E;}
 /*-------------------
       FOOTER
 -------------------*/
