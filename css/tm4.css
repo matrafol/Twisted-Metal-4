@@ -6,6 +6,7 @@ html{
   font-size: 1.3em;
   font-family: georgia;
   font-weight: bolder;
+  letter-spacing: 3px;
 }
 
 body{background-color: #000000; text-align: center; color: #F0F7EE;}
@@ -46,10 +47,10 @@ nav, footer{padding: 1em;}
       text-align: left; 
       padding: 10px; 
       border: none; 
-      background-color: #879bab;
+      background-color: #5D737E;
     }
       nav ul li.result img{width: 80px; padding-right: 10px; vertical-align: middle;}
-      nav ul li.highlighted{background-color: #5D737E; color: #72E900;}
+      nav ul li.highlighted{background-color: #879bab; color: #72E900;}
 /*-------------------
       CONTENT
 -------------------*/
@@ -76,10 +77,8 @@ article.character_data_container button{
   
   article.character_data_container label.label{
     padding: 0.6em 1em;
-    transition: 0.3s ease-in;
     align-self: center;
   }
-    article.character_data_container label.label:hover{border: solid green 2px;}
   article.character_data_container label.character_name{
     margin: 0 auto;
     grid-column-start: 2;
@@ -116,7 +115,8 @@ article.character_data_container button{
           display: inline-block; 
         }
 
-  .info_container iframe{width: 100%; min-height: 400px; max-height: 600px; border: 2px solid #5D737E;}
+  .info_container iframe, video{width: 100%; border: 2px solid #5D737E;}
+    .info_container iframe{min-height: 400px; max-height: 600px;}
 /*-------------------
       FOOTER
 -------------------*/

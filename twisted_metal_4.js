@@ -7,7 +7,7 @@ const characters = [
 		vehicle_image: '<img src="images/characters/calypso/calypso-vehicle.png">',
 		driver_deamanor: "Evil",
 		special_weapon_desc: 
-			"Calypso employs powerful nuclear missles which must be detonated near his opponents",
+			"Calypso employs powerful nuclear missles which must be detonated near his opponents.",
 		handling: 1,
 		armor: 4,
 		special_weapon_stats: 4,
@@ -15,7 +15,7 @@ const characters = [
 		ending_video: '<iframe src="https://www.youtube.com/embed/JhjCPxbezxE" \
 			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		vehicle_gif : '<iframe src="https://giphy.com/embed/65HTa72NRQ1WEc0Jh0" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
-		//special_weapon_gif: '<iframe src="https://media.giphy.com/media/PQwm3MI7UqrxypReDy/giphy.gif" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+		special_weapon_video: 'images/characters/calypso/calypso-special-video.mp4'
 	},
 	{
 		index: 1,
@@ -25,88 +25,294 @@ const characters = [
 		vehicle_image: '<img src="images/characters/captain-grimm/captain-grimm-vehicle.png">',
 		driver_deamanor: "Evil",
 		special_weapon_desc: 
-			"Captain Grimm shoots a fiery cannon ball that sets fire to and damages heavily any opponent",
+			"Captain Grimm shoots a fiery cannon ball that sets fire to and damages heavily any opponent.",
 		handling: 5,
 		armor: 1,
 		special_weapon_stats: 3,
 		speed: 4,
 		ending_video: '<iframe src="https://www.youtube.com/embed/rR3uSkcBWz8" \
 			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-		vehicle_gif: '<iframe src="https://giphy.com/embed/B1pIKKLYY2noZJKURp" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
-	}, 
+		vehicle_gif: '<iframe src="https://giphy.com/embed/B1pIKKLYY2noZJKURp" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/captain-grimm/captain-grimm-special-video.mp4'
+	},
 	{
 		index: 2,
+		player_type: "Boss",
+		name: "Crusher",
+		vehicle_image: '<img src="images/characters/bosses/crusher-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/LXBQotN1QfhLJFwRK2" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/crusher-special-video.mp4'
+	},
+	{
+		index: 3,
 		player_type: "Contestant",
 		name: "Drag Queen",
 		type_of_car: "Hot Rodder",
 		vehicle_image: '<img src="images/characters/drag-queen/drag-queen-vehicle.png">',
 		driver_deamanor: "Twisted",
 		special_weapon_desc: 
-			"Drag Queen's flame thrower projects forward from the car's grille and sets opponents on fire",
+			"Drag Queen's flame thrower projects forward from the car's grille and sets opponents on fire.",
 		handling: 1,
 		armor: 2,
 		special_weapon_stats: 3,
 		speed: 4, 
 		ending_video: '<iframe src="https://www.youtube.com/embed/7ACQyrZJ4zM" \
 			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-		vehicle_gif: '<iframe src="https://giphy.com/embed/uBmCGBxTxQE3uTkbJx" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+		vehicle_gif: '<iframe src="https://giphy.com/embed/uBmCGBxTxQE3uTkbJx" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/drag-queen/drag-queen-special-video.mp4'
 	},
 	{
-		index: 3,
-		player_type: "Boss",
-		name: "Crusher",
-		vehicle_image: '<img src="images/characters/bosses/crusher-vehicle.png">',
-		vehicle_gif: '<iframe src="https://giphy.com/embed/LXBQotN1QfhLJFwRK2" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
-	},
-	/*{
 		index: 4,
 		player_type: "Contestant",
+		name: "General Warthog",
+		type_of_car: "WW1 tank",
+		vehicle_image: '<img src="images/characters/general-warthog/general-warthog.png">',
+		driver_deamanor: "Twisted",
+		special_weapon_desc: 
+			"General Warthog plants a marker/target which initializes an ion satellite and later activates a powerful ion blast.",
+		handling: 1,
+		armor: 4,
+		special_weapon_stats: 4,
+		speed: 2, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/kGjfTIUC14g" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/X9QDFPdNXswVDJRVdB" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/general-warthog/general-warthog-special-video.mp4'
+	},
+	{
+		index: 5,
+		player_type: "Contestant",
+		name: "Goggle Eyes",
+		type_of_car: "Roach Coach",
+		vehicle_image: '<img src="images/characters/goggle-eyes/goggle-eyes-vehicle.png">',
+		driver_deamanor: "Evil",
+		special_weapon_desc: 
+			"Goggle Eyes sprays a green hydrochloric toxic acid which causes on contact massive damage.",
+		handling: 3,
+		armor: 3,
+		special_weapon_stats: 4,
+		speed: 3, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/mq3c8tS3n7E" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/AFPKKdM4jaWOrTCA5R" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/goggle-eyes/goggle-eyes-special-video.mp4'
+	},
+	{
+		index: 6,
+		player_type: "Contestant",
+		name: "Meter Maid",
+		type_of_car: "3 Wheeled meter car",
+		vehicle_image: '<img src="images/characters/meter-maid/meter-maid-vehicle.png">',
+		driver_deamanor: "Good",
+		special_weapon_desc: 
+			"Meter Maid releases an energy circumference that syphons an opponent's health unto her own.",
+		handling: 3,
+		armor: 1,
+		special_weapon_stats: 3,
+		speed: 2, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/0E0BxWA_nKM" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/2SYi7BPHV8JjCIhUsj" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/meter-maid/meter-maid-special-video.mp4'
+	},
+	{
+		index: 7,
+		player_type: "Contestant",
+		name: "Micro Blast",
+		type_of_car: "Toy Car",
+		vehicle_image: '<img src="images/characters/micro-blast/micro-blast-vehicle.png">',
+		driver_deamanor: "Evil",
+		special_weapon_desc: 
+			"Micro Blast engages a series of rapid fire speed missles called the gatliner.",
+		handling: 4,
+		armor: 1,
+		special_weapon_stats: 2,
+		speed: 4, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/Hs6S9J0SzPs" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/pP32qbexY3fxs782M4" frameBorder="0" class="giphy-embed" allowFullScreen>',
+		special_weapon_video: 'images/characters/micro-blast/micro-blast-special-video.mp4'
+	},
+	{
+		index: 8,
+		player_type: "Boss",
+		name: "Minion",
+		vehicle_image: '<img src="images/characters/bosses/minion-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/YVs5j7f3A7fT0bHo3w" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/minion-special-video.mp4'
+	},
+	{
+		index: 9,
+		player_type: "Boss",
+		name: "Moon Buggy",
+		vehicle_image: '<img src="images/characters/bosses/moon-buggy-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/5EAtpVMxs8BjEBhDkX" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/moon-buggy-special-video.mp4'
+	},
+	{
+		index: 10,
+		player_type: "Contestant",
+		name: "Mr. Zombie",
+		type_of_car: "Dracula",
+		vehicle_image: '<img src="images/characters/mr-zombie/mr-zombie-vehicle.png">',
+		driver_deamanor: "Evil",
+		special_weapon_desc: 
+			"Mr. Zombie fires a spinning skull which draws enemies in as it electrifies then explodes at its final stage.",
+		handling: 5,
+		armor: 3,
+		special_weapon_stats: 3,
+		speed: 3, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/tft8aCcUnS0" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/ZclQTWRqM8XAHdBMMQ" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/mr-zombie/mr-zombie-special-video.mp4'
+	},
+	{
+		index: 11,
+		player_type: "Contestant",
 		name: "Orbital",
-		//type_of_car: "Hot Rodder",
-		vehicle_image: '<img src="images/characters/bosses/crusher-vehicle.png">',
-		//driver_deamanor: "Twisted",
-		//special_weapon_desc: 
-			//"Drag Queen's flame thrower projects forward from the car's grille and sets opponents on fire",
-		//handling: 1,
-		//armor: 2,
-		//special_weapon_stats: 3,
-		//speed: 4, 
-		//ending_video: '<iframe src="https://www.youtube.com/embed/7ACQyrZJ4zM" \
-			//frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-		vehicle_gif : '<iframe src="https://giphy.com/embed/3oiq2CenghshqOfaNO" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
-	},*/
+		type_of_car: "Sleek sports car",
+		vehicle_image: '<img src="images/characters/orbital/orbital-vehicle.png">',
+		driver_deamanor: "Good",
+		special_weapon_desc: 
+			"Orbital's special is the teleorb. It electrifies the enemy and then freezes them.",
+		handling: 5,
+		armor: 2,
+		special_weapon_stats: 3,
+		speed: 5, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/jNk2cZSBq5g" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/1xOyKkRUJHItqTtCPh" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/orbital/orbital-special-video.mp4'
+	},
+	{
+		index: 12,
+		player_type: "Contestant",
+		name: "Pizza Boy",
+		type_of_car: "Illegal street racer",
+		vehicle_image: '<img src="images/characters/pizza-boy/pizza-boy-vehicle.png">',
+		driver_deamanor: "Good",
+		special_weapon_desc: 
+			"Pizza Boy sends out two giant, spinning pizza saw blades that home-in on an opponent.",
+		handling: 5,
+		armor: 2,
+		special_weapon_stats: 2,
+		speed: 2, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/e1oSZkJHMD0" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/dZ4ewiXYDPoajYWvC6" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/pizza-boy/pizza-boy-special-video.mp4'
+	},
+	{
+		index: 13,
+		player_type: "Contestant",
+		name: "Quatro",
+		type_of_car: "Xeon Hoverbike",
+		vehicle_image: '<img src="images/characters/quatro/quatro-vehicle.png">',
+		driver_deamanor: "Good",
+		special_weapon_desc: 
+			"Quatro sends out a pulse of microwave radiation around his hover trike that severly damages opponents.",
+		handling: 5,
+		armor: 1,
+		special_weapon_stats: 2,
+		speed: 5, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/6sthf_fCar4" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/1vZaI4C0D7W99GaCCo" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/quatro/quatro-special-video.mp4'
+	},
+	{
+		index: 14,
+		player_type: "Boss",
+		name: "Rc Car",
+		vehicle_image: '<img src="images/characters/bosses/rc-car-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/cXRdGz9kOd3j0uBdFJ" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/rc-car-special-video.mp4'
+	},
+	{
+		index: 15,
+		player_type: "Boss",
+		name: "Super Axel",
+		vehicle_image: '<img src="images/characters/bosses/super-axel-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/xAEKvOLazXtAXfUVpc" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/super-axel-special-video.mp4'
+	},
+	{
+		index: 16,
+		player_type: "Boss",
+		name: "Super Auger",
+		vehicle_image: '<img src="images/characters/bosses/super-auger-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/RKKRKpRJgyo8mRMBaN" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/super-auger-special-video.mp4'
+	},
+	{
+		index: 17,
+		player_type: "Boss",
+		name: "Super Slamm",
+		vehicle_image: '<img src="images/characters/bosses/super-slamm-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/1xNTc7dVQ4kwJrWxo5" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/super-slamm-special-video.mp4'
+	},
+	{
+		index: 18,
+		player_type: "Boss",
+		name: "Super Thumper",
+		vehicle_image: '<img src="images/characters/bosses/super-thumper-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/WNId4R9eYqeQYlNIE4" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/super-thumper-special-video.mp4'
+	},
+	{
+		index: 19,
+		player_type: "Boss",
+		name: "Sweet Tooth",
+		vehicle_image: '<img src="images/characters/bosses/sweet-tooth-vehicle.png">',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/fGIh5oHyZCsq61pwAs" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/bosses/sweet-tooth-special-video.mp4'
+	},
+	{
+		index: 20,
+		player_type: "Contestant",
+		name: "The Joneses",
+		type_of_car: "Family wagon",
+		vehicle_image: '<img src="images/characters/the-joneses/the-joneses-vehicle.png">',
+		driver_deamanor: "Good/Tiwsted",
+		special_weapon_desc: 
+			"The Joneses launch three strong homing missles called hornets which causes heavy damage on an opponent.",
+		handling: 3,
+		armor: 2,
+		special_weapon_stats: 2,
+		speed: 3, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/tsyz-GtmsZY" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/93lLEJph06lkr3zwVm" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/the-joneses/the-joneses-special-video.mp4'
+	},
+	{
+		index: 21,
+		player_type: "Contestant",
+		name: "Trash Man",
+		type_of_car: "Garbage Truck",
+		vehicle_image: '<img src="images/characters/trash-man/trash-man-vehicle.png">',
+		driver_deamanor: "Twisted",
+		special_weapon_desc: 
+			"Using large hydraulic arms, Trash man picks up and slams his opponents repeatedly onto spikes mounted on his roof.",
+		handling: 1,
+		armor: 4,
+		special_weapon_stats: 4,
+		speed: 3, 
+		ending_video: '<iframe src="https://www.youtube.com/embed/em4gs1gk1mw" \
+			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		vehicle_gif: '<iframe src="https://giphy.com/embed/g4XnB39inFnHhHHzpR" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
+		special_weapon_video: 'images/characters/trash-man/trash-man-special-video.mp4'
+	}
 ];
-
-
-
-/*
-pizza boy: <iframe src="https://giphy.com/embed/dZ4ewiXYDPoajYWvC6" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-warthog: <iframe src="https://giphy.com/embed/X9QDFPdNXswVDJRVdB" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-goggle eyes: <iframe src="https://giphy.com/embed/AFPKKdM4jaWOrTCA5R" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-meter maid: <iframe src="https://giphy.com/embed/2SYi7BPHV8JjCIhUsj" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-micro blast: <iframe src="https://giphy.com/embed/pP32qbexY3fxs782M4" frameBorder="0" class="giphy-embed" allowFullScreen>
-trash man: <iframe src="https://giphy.com/embed/g4XnB39inFnHhHHzpR" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-mr zombie: <iframe src="https://giphy.com/embed/ZclQTWRqM8XAHdBMMQ" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-the joneses: <iframe src="https://giphy.com/embed/93lLEJph06lkr3zwVm" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-quatro: <iframe src="https://giphy.com/embed/1vZaI4C0D7W99GaCCo" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-
-rc car: <iframe src="https://giphy.com/embed/cXRdGz9kOd3j0uBdFJ" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-super auger: <iframe src="https://giphy.com/embed/RKKRKpRJgyo8mRMBaN" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-super slamm: <iframe src="https://giphy.com/embed/1xNTc7dVQ4kwJrWxo5" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-super thumper: <iframe src="https://giphy.com/embed/WNId4R9eYqeQYlNIE4" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-sweet tooth: <iframe src="https://giphy.com/embed/fGIh5oHyZCsq61pwAs" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-minion: <iframe src="https://giphy.com/embed/YVs5j7f3A7fT0bHo3w" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-moon buggy: <iframe src="https://giphy.com/embed/5EAtpVMxs8BjEBhDkX" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-super axel: <iframe src="https://giphy.com/embed/xAEKvOLazXtAXfUVpc" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-
-*/
 
 var index = 0;
 const characterLength = characters.length;
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 
-/*nextButton.addEventListener("click", function(){
+nextButton.addEventListener("click", function(){
 	if(index == characterLength - 1){
 		index = 0; 
 		changeHtmlElement(characters[index]);
@@ -126,7 +332,7 @@ previousButton.addEventListener("click", function(){
 		index --;
 		changeHtmlElement(characters[index]);
 	}
-});*/
+});
 
 const search = document.getElementById("search");
 const autoCompleteResult = document.getElementById("auto_complete_result");
@@ -261,6 +467,7 @@ function highlightResult(highlightedIndex){
 	autoCompleteResult.children[highlightedIndex].classList.add("highlighted");
 }
 
+
 function changeHtmlElement(characterData){
 	toggleCharacterInfoEnding(characterData.player_type);
 	changeColor(characterData.driver_deamanor, characterData.player_type);
@@ -277,7 +484,6 @@ function changeHtmlElement(characterData){
 		special_weapon_desc: document.getElementById("special_weapon_desc").innerHTML = characterData.special_weapon_desc,
 
 		// Javascript closure self invoked and doesnt need to be called, 
-		// Pass the needed characterData variable to the functions
 		// Keep createing new element div with a class name of stats 
 		// Then append it to its parent node until the counter is equal to the passed variable
 
@@ -315,7 +521,12 @@ function changeHtmlElement(characterData){
 		}()),
 		ending_video: document.getElementById("ending").innerHTML = characterData.ending_video,
 		vehicle_gif: document.getElementById("vehicle_gif").innerHTML = characterData.vehicle_gif,
-		//special_weapon_gif: document.getElementById("special_weapon_gif").innerHTML = characterData.special_weapon_gif
+		special_weapon_video: (function(){
+		 	var video = document.getElementById("video");
+		 	video.src = characterData.special_weapon_video;
+		 	video.innerHTML = "Your browser does not support HTML5 video.";
+		 	video.load();
+		}()),
 	}
 	return elements;
 }
