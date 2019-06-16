@@ -4,7 +4,7 @@ const characters = [
 		player_type: "Contestant",
 		name: "Calypso",
 		type_of_car: "Nuke Mobile",
-		vehicle_image: '<img src="images/characters/calypso/calypso-vehicle.png">',
+		vehicle_image: '<img src="images/Characters/calypso/calypso-vehicle.png">',
 		driver_deamanor: "Evil",
 		special_weapon_desc: 
 			"Calypso employs powerful nuclear missles which must be detonated near his opponents.",
@@ -15,7 +15,7 @@ const characters = [
 		ending_video: '<iframe src="https://www.youtube.com/embed/JhjCPxbezxE" \
 			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 		vehicle_gif : '<iframe src="https://giphy.com/embed/65HTa72NRQ1WEc0Jh0" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',
-		special_weapon_video: 'images/characters/calypso/calypso-special-video.mp4'
+		special_weapon_video: 'images/Characters/calypso/calypso-special-video.mp4'
 	},
 	{
 		index: 1,
