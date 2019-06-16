@@ -309,6 +309,11 @@ const characters = [
 
 var index = 0;
 const characterLength = characters.length;
+
+/*********************************************************************************************/
+/*								NEXT AND PREVIOUS BUTTON                             		 */
+/*********************************************************************************************/
+
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 
@@ -333,6 +338,10 @@ previousButton.addEventListener("click", function(){
 		changeHtmlElement(characters[index]);
 	}
 });
+
+/*********************************************************************************************/
+/*								SEARCH BUTTON AND AUTO COMPLETE                              */
+/*********************************************************************************************/
 
 const search = document.getElementById("search");
 const autoCompleteResult = document.getElementById("auto_complete_result");
@@ -392,39 +401,6 @@ search.addEventListener("keyup", function(e){
 	}
 });
 
-document.body.addEventListener('click', function(e){
-		toggleResult("hide");
-		focusHighlight = 0;
-});
-
-function changeColor(driverDemeanor, playerType){
-	if(playerType.toLowerCase() == "boss") return;
-
-	var driverDemeanorHtml = document.getElementById("driver_demeanor");
-	var typeOfCarHtml = document.getElementById("type_of_car");
-
-	if(driverDemeanor.toLowerCase() == "evil"){
-		driverDemeanorHtml.style.color = "#fa033d";
-		typeOfCarHtml.style.color = "#fa033d";
-	} else{
-		driverDemeanorHtml.style.color = "#72E900";
-		typeOfCarHtml.style.color = "#72E900";
-	}
-}
-
-function toggleCharacterInfoEnding(playerType){
-	var characterInfo = document.getElementsByClassName("character_info")[0];
-	var characterEnding = document.getElementsByClassName("character_ending")[0];
-
-	if(playerType.toLowerCase() == "boss"){
-		characterInfo.style.display = "none";
-		characterEnding.style.display = "none";
-	} else{
-		characterInfo.style.display = "block";
-		characterEnding.style.display = "block";
-	}
-}
-
 function toggleResult(action){
 	if(action == "hide"){
 		autoCompleteResult.style.visiblity = "hidden";
@@ -467,6 +443,43 @@ function highlightResult(highlightedIndex){
 	autoCompleteResult.children[highlightedIndex].classList.add("highlighted");
 }
 
+// Hides auto complete result when user click anywhere on the website
+document.body.addEventListener('click', function(e){
+		toggleResult("hide");
+		focusHighlight = 0;
+});
+
+/*********************************************************************************************/
+/*								      MANIPULATE DOM                             			 */
+/*********************************************************************************************/
+
+function changeColor(driverDemeanor, playerType){
+	if(playerType.toLowerCase() == "boss") return;
+
+	var driverDemeanorHtml = document.getElementById("driver_demeanor");
+	var typeOfCarHtml = document.getElementById("type_of_car");
+
+	if(driverDemeanor.toLowerCase() == "evil"){
+		driverDemeanorHtml.style.color = "#fa033d";
+		typeOfCarHtml.style.color = "#fa033d";
+	} else{
+		driverDemeanorHtml.style.color = "#72E900";
+		typeOfCarHtml.style.color = "#72E900";
+	}
+}
+
+function toggleCharacterInfoEnding(playerType){
+	var characterInfo = document.getElementsByClassName("character_info")[0];
+	var characterEnding = document.getElementsByClassName("character_ending")[0];
+
+	if(playerType.toLowerCase() == "boss"){
+		characterInfo.style.display = "none";
+		characterEnding.style.display = "none";
+	} else{
+		characterInfo.style.display = "block";
+		characterEnding.style.display = "block";
+	}
+}
 
 function changeHtmlElement(characterData){
 	toggleCharacterInfoEnding(characterData.player_type);
